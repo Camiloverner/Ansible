@@ -38,7 +38,7 @@ Beleza. Agora vamos entender oque esse Playbook faz!
 * Cria um usuário com o nome **novo_usuario**.
 * Adiciona o usuário ao grupo **wheel**.
 * Configura a chave **SSH** para o usuário. Certifique-se de ter sua chave pública no arquivo **~/.ssh/id_rsa.pub**.
-* 
+
 ### Exemplo de um arquivo de inventário hosts.<h3>
 Este arquivo define os hosts nos quais o playbook será executado.
 ~~~YML
