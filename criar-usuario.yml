@@ -1,0 +1,22 @@
+---
+- name: Crie um usuário específico no servidor centos worker1
+  hosts: centos
+  become: yes
+  vars:
+    password: "{{ vars[nomeusuario]['password'] }}"
+  tasks:
+    - name: Pegando a senha do usuário {{ nomeusuario }} do Vault
+      include_vars:
+        file: passwords.yml
+        
+    - name: Debug para o usuário {{ nomeusuario }}
+      debug:
+        msg: "{{ vars[nomeusuario]['password'] }}" 
+        
+    - name: Criando o usuário '{{ nomeusuario }}'
+      user:
+        name: "{{ nomeusuario }}"
+        comment: "{{ comment }}"
+        password: "{{ password | password_hash('sha512') }}"
+        update_password: always
+        state: present

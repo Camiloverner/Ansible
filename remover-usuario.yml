@@ -1,0 +1,11 @@
+---
+- name: Excluir um usuário específico do centos
+  hosts: centos
+  become: yes
+  tasks:
+    - name: Excluir a conta '{{ nomeusuario }}'
+      user:
+        name: "{{ nomeusuario }}"
+        remove: yes
+        force: yes
+        state: absent
