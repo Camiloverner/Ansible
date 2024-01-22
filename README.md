@@ -34,3 +34,7 @@ Abaixo está um exemplo simples de um playbook do Ansible em formato YAML para c
 ~~~~
 
 Beleza. Agora vamos entender oque esse Playbook faz! 
+
+* Cria um usuário com o nome **novo_usuario**.
+* Adiciona o usuário ao grupo **wheel**.
+* Configura a chave **SSH** para o usuário. Certifique-se de ter sua chave pública no arquivo **~/.ssh/id_rsa.pub**.
