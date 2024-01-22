@@ -43,7 +43,7 @@ Beleza. Agora vamos entender oque esse Playbook faz!
 Este arquivo define os hosts nos quais o playbook será executado.
 ~~~YML
 [centos]
-ip_do_centos
+ip_do_centos            #Substitua ip_do_centos, ip_do_ubuntu e ip_do_redhat pelos endereços IP reais ou nomes de host das suas máquinas. 
 
 [ubuntu]
 ip_do_ubuntu
