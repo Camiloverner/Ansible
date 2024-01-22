@@ -38,3 +38,5 @@ Beleza. Agora vamos entender oque esse Playbook faz!
 * Cria um usuário com o nome **novo_usuario**.
 * Adiciona o usuário ao grupo **wheel**.
 * Configura a chave **SSH** para o usuário. Certifique-se de ter sua chave pública no arquivo **~/.ssh/id_rsa.pub**.
+
+💾 Lembre-se esse é apenas um pequeno exemplo de como é sintaxe e o funcionamento do Playbook! Apenas para fins de estudo, não aplicar em Produção!
