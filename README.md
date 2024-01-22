@@ -1,1 +1,1 @@
-![](https://upload.wikimedia.org/wikipedia/commons/0/05/Ansible_Logo.png)
+![](https://i0.wp.com/blog.knoldus.com/wp-content/uploads/2017/10/ansible_logo.png?fit=1800%2C514&ssl=1)
