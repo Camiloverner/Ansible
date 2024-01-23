@@ -118,6 +118,7 @@ Este playbook faz o seguinte:
         - telnet
       when: "'redhat' in inventory_hostname"
 ~~~
-
-
+Belezinha! Este playbook faz o seguinte:
+* Atualiza o pacote do firewall para garantir que esteja na versão mais recente (isso pode variar dependendo do sistema operacional).
+* Abre as portas 80, 56 e 23 no firewall, utilizando módulos específicos para o Ubuntu (UFW) e o Red Hat (Firewalld).
 💾 Lembre-se esse é apenas um pequeno exemplo de como é sintaxe e o funcionamento do Playbook! Apenas para fins de estudo, não aplicar em Produção!
