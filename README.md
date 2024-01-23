@@ -82,6 +82,42 @@ Este playbook faz o seguinte:
 * Atualiza todos os pacotes no CentOS usando o **módulo yum**.
 * Atualiza todos os pacotes no Ubuntu usando o **módulo apt**.
 *  Atualiza todos os pacotes no Red Hat usando o **módulo yum**.
-### Playbook para atualizar pacotes Firewall e abrir portas específicas <h3>
+### Playbook para atualizar pacotes do Firewall e abrir portas específicas <h3>
+~~~YML
+---
+- name: Configurar firewall
+  hosts: ubuntu, redhat
+  become: yes  # Para executar com privilégios de superusuário (sudo)
+
+  tasks:
+    - name: Atualizar pacotes do firewall
+      package:
+        name: firewalld  # Substitua pelo nome do pacote do firewall no seu sistema
+        state: latest
+      when: "'ubuntu' in inventory_hostname or 'redhat' in inventory_hostname"
+
+    - name: Abrir portas no firewall (Ubuntu)
+      ufw:
+        rule: allow
+        port: "{{ item }}"
+      with_items:
+        - 80
+        - 56
+        - 23
+      when: "'ubuntu' in inventory_hostname"
+
+    - name: Abrir portas no firewall (Red Hat)
+      firewalld:
+        service: "{{ item }}"
+        permanent: yes
+        state: enabled
+        immediate: yes
+      with_items:
+        - http
+        - tcp-56
+        - telnet
+      when: "'redhat' in inventory_hostname"
+~~~
+
 
 💾 Lembre-se esse é apenas um pequeno exemplo de como é sintaxe e o funcionamento do Playbook! Apenas para fins de estudo, não aplicar em Produção!
