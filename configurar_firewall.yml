@@ -1,0 +1,34 @@
+---
+- name: Configurar firewall
+  hosts: ubuntu, redhat
+  become: yes  # Para executar com privilégios de superusuário (sudo)
+
+  tasks:
+    - name: Atualizar pacotes do firewall
+      package:
+        name: firewalld  # Substitua pelo nome do pacote do firewall no seu sistema
+        state: latest
+      when: "'ubuntu' in inventory_hostname or 'redhat' in inventory_hostname"
+
+    - name: Abrir portas no firewall (Ubuntu)
+      ufw:
+        rule: allow
+        port: "{{ item }}"
+      with_items:
+        - 80
+        - 56
+        - 23
+      when: "'ubuntu' in inventory_hostname"
+
+    - name: Abrir portas no firewall (Red Hat)
+      firewalld:
+        service: "{{ item }}"
+        permanent: yes
+        state: enabled
+        immediate: yes
+      with_items:
+        - http
+        - tcp-56
+        - telnet
+      when: "'redhat' in inventory_hostname"
+

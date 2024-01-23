@@ -1,0 +1,23 @@
+---
+- name: Atualizar pacotes
+  hosts: centos, ubuntu, redhat
+  become: yes  # Para executar com privilégios de superusuário (sudo)
+
+  tasks:
+    - name: Atualizar pacotes no CentOS
+      yum:
+        name: '*'
+        state: latest
+      when: "'centos' in inventory_hostname"
+
+    - name: Atualizar pacotes no Ubuntu
+      apt:
+        upgrade: yes
+      when: "'ubuntu' in inventory_hostname"
+
+    - name: Atualizar pacotes no Red Hat
+      yum:
+        name: '*'
+        state: latest
+      when: "'redhat' in inventory_hostname"
+
