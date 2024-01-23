@@ -82,5 +82,6 @@ Este playbook faz o seguinte:
 * Atualiza todos os pacotes no CentOS usando o **módulo yum**.
 * Atualiza todos os pacotes no Ubuntu usando o **módulo apt**.
 *  Atualiza todos os pacotes no Red Hat usando o **módulo yum**.
+### Playbook para atualizar pacotes Firewall e abrir portas específicas <h3>
 
 💾 Lembre-se esse é apenas um pequeno exemplo de como é sintaxe e o funcionamento do Playbook! Apenas para fins de estudo, não aplicar em Produção!
