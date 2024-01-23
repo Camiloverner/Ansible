@@ -124,7 +124,7 @@ Belezinha! Este playbook faz o seguinte:
 Lembre-se de que os comandos e os módulos específicos podem variar dependendo da distribuição Linux e da versão do Ansible que você está usando. Certifique-se de ajustar os nomes dos pacotes e dos serviços conforme necessário para a sua configuração.
 
 Para executar o playbook, salve o código acima em um arquivo YAML, por exemplo, configurar_firewall.yml, e use o seguinte comando:
-~~~YML
+~~~shell
 ansible-playbook -i 'IP_ou_hostname_da_maquina,' -u SEU_USUARIO_SSH -k configurar_firewall.yml
 ~~~
 Substitua IP_ou_hostname_da_maquina pelo endereço IP ou nome do host da máquina onde deseja executar o playbook, e SEU_USUARIO_SSH pelo seu nome de usuário SSH.
