@@ -52,4 +52,32 @@ ip_do_ubuntu
 ip_do_redhat
 
 ~~~
+### Playbook para atualizar pacotes em máquinas CentOS, Ubuntu e Red Hat  <h3>
+Este arquivo atuaaliza os pacotes nas maquinas mencionadas acima.
+~~~YML
+---
+- name: Atualizar pacotes
+  hosts: centos, ubuntu, redhat
+  become: yes  # Para executar com privilégios de superusuário (sudo)
+
+  tasks:
+    - name: Atualizar pacotes no CentOS
+      yum:
+        name: '*'
+        state: latest
+      when: "'centos' in inventory_hostname"
+
+    - name: Atualizar pacotes no Ubuntu
+      apt:
+        upgrade: yes
+      when: "'ubuntu' in inventory_hostname"
+
+    - name: Atualizar pacotes no Red Hat
+      yum:
+        name: '*'
+        state: latest
+      when: "'redhat' in inventory_hostname"
+~~~
+
+
 💾 Lembre-se esse é apenas um pequeno exemplo de como é sintaxe e o funcionamento do Playbook! Apenas para fins de estudo, não aplicar em Produção!
