@@ -1,34 +1,18 @@
-pipeline{
+pipeline {
     agent any
-    stages {
-        stage("Stage 1"){
-            steps {
-                echo "This is Stage 1"
-            }
-        }
-                stage("Stage 2"){
-            steps {
-                echo "This is Stage 2"
-            }
-        }
-                stage("Stage 3"){
-            steps {
-                echo "This is Stage 3"
-            }
-        }
-                stage("Stage 4"){
-            steps {
-                echo "This is Stage 4"
-            }
-        }
-                stage("Stage 5"){
-            steps {
-                echo "This is Stage 5"
-            }
-        }
-        stage("Stage 6"){
-            steps {
-                echo "This is Stage 6 Pipeline verificando atualizações aaaaatestando"
+
+    environment {
+        def myString  = "Hello World"
+        def myNumber = 7
+        def myBool = true
+    }
+
+    stages{
+        stage("Demo"){
+            steps{
+                echo "my string: ${myString}"
+                echo "my number: ${myNumber}"
+                echo "my bool: ${myBool}"
             }
         }
     }
