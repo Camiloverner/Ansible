@@ -26,5 +26,10 @@ pipeline{
                 echo "This is Stage 5"
             }
         }
+        stage("Stage 6"){
+            steps {
+                echo "This is Stage 6 Pipeline verificando atualizações"
+            }
+        }
     }
 }
