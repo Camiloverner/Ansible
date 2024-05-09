@@ -28,7 +28,7 @@ pipeline{
         }
         stage("Stage 6"){
             steps {
-                echo "This is Stage 6 Pipeline verificando atualizações"
+                echo "This is Stage 6 Pipeline verificando atualizações aaaaatestando"
             }
         }
     }
