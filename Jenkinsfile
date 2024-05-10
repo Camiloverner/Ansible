@@ -1,18 +1,17 @@
 pipeline {
     agent any
-
-    environment {
-        def myString  = "Hello World"
-        def myNumber = 7
-        def myBool = true
-    }
-
-    stages{
-        stage("Demo"){
-            steps{
-                echo "my string: ${myString}"
-                echo "my number: ${myNumber}"
-                echo "my bool: ${myBool}"
+    
+    stages {
+        stage('Pegar o código no repositório') {
+            steps {
+                git 'https://github.com/Camiloverner/pipeline-hello_world.git'
+            }
+        }
+        
+        stage('Fazer o deploy na web') {
+            steps {
+                // Copiar os arquivos do repositório para o diretório do Apache
+                sh 'cp -r * /var/www/html'
             }
         }
     }
